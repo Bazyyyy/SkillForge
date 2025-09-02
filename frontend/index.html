@@ -7,14 +7,6 @@
 <body>
     <h1>Willkommen bei SkillForge!</h1>
     <p>Dies ist eine einfache Startseite.</p>
-    <button id="backendBtn">Backend begrüßen</button>
-    <div id="backendMessage"></div>
-    <script>
-        document.getElementById('backendBtn').onclick = async () => {
-            const res = await fetch('/api/greeting');
-            const data = await res.json();
-            document.getElementById('backendMessage').innerText = data.message;
-        };
-    </script>
+
 </body>
 </html>
