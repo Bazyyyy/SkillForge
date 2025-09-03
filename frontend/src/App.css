@@ -1,0 +1,73 @@
+/* Grundlegendes Layout und Farben */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe29f 0%, #ffa99f 100%);
+  min-height: 100vh;
+}
+
+/* App-Container mit leichter "Schmiede"-Anmutung */
+.app-container {
+  max-width: 480px;
+  margin: 40px auto;
+  background: #fff8e1;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80, 40, 10, 0.10);
+  padding: 32px 24px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  border: 3px solid #d2691e;
+}
+
+/* Header mit freundlichen Farben */
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  margin: 0;
+  color: #d2691e;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff3e0;
+}
+
+nav {
+  margin-top: 16px;
+}
+
+nav button {
+  background: #ffb347;
+  color: #4e2e0e;
+  border: 2px solid #d2691e;
+  border-radius: 8px;
+  padding: 10px 22px;
+  margin: 0 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav button.active,
+nav button:hover {
+  background: #d2691e;
+  color: #fff8e1;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  text-align: center;
+  color: #bfa06a;
+  margin-top: auto;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}

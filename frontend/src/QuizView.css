@@ -1,0 +1,95 @@
+/* Container für das Quiz */
+.quizview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Statusanzeige für Level und Punkte */
+.quiz-status {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #a0522d;
+  font-weight: bold;
+}
+
+/* Errungenschaften-Banner */
+.achievements {
+  margin-bottom: 12px;
+}
+.achievement {
+  background: #ffe29f;
+  color: #d2691e;
+  border: 2px solid #d2691e;
+  border-radius: 10px;
+  padding: 6px 18px;
+  margin: 6px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(80, 40, 10, 0.08);
+  text-align: center;
+  animation: pop-in 0.4s;
+}
+@keyframes pop-in {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Quizkarte */
+.quiz-card {
+  background: #fff3e0;
+  border: 2.5px solid #d2691e;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(80, 40, 10, 0.10);
+  padding: 28px 22px;
+  min-width: 260px;
+  max-width: 340px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Frage */
+.quiz-question {
+  color: #a0522d;
+  margin-bottom: 18px;
+}
+
+/* Antwortfeld und Button */
+.quiz-card input[type="text"] {
+  padding: 8px;
+  border-radius: 8px;
+  border: 2px solid #d2691e;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.quiz-card button {
+  background: #ffb347;
+  color: #4e2e0e;
+  border: 2px solid #d2691e;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.quiz-card button:hover {
+  background: #d2691e;
+  color: #fff8e1;
+}
+
+/* Feedback nach Antwort */
+.quiz-feedback {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: #388e3c;
+  font-weight: bold;
+}
