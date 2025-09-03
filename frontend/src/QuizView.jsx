@@ -124,18 +124,15 @@ export default function QuizView() {
         {!showResult ? (
           <form onSubmit={checkAnswer}>
             <div className="quiz-options">
-              {options.map((option, i) => (
-                <label key={i} className={`quiz-option${selectedOption === option ? " selected" : ""}`}>
-                  <input
-                    type="radio"
-                    name="option"
-                    value={option}
-                    checked={selectedOption === option}
-                    onChange={() => setSelectedOption(option)}
-                    required
-                  />
-                  {option}
-                </label>
+              {options.map((opt, idx) => (
+                <button
+                  key={opt}
+                  className={`quiz-option-btn${selectedOption === opt ? " selected" : ""}`}
+                  onClick={() => setSelectedOption(opt)}
+                  disabled={showResult}
+                >
+                  {opt}
+                </button>
               ))}
             </div>
             <button type="submit" disabled={selectedOption === null}>Antwort prüfen</button>

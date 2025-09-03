@@ -69,7 +69,7 @@
 }
 
 .quiz-card button {
-  background: #ffb347;
+  background: #ffd69d;
   color: #4e2e0e;
   border: 2px solid #d2691e;
   border-radius: 8px;
@@ -92,4 +92,37 @@
   font-size: 1.1rem;
   color: #388e3c;
   font-weight: bold;
+}
+
+/* Optionen für die Antworten */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start; /* linksbündig */
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.quiz-option-btn {
+  background: #fff8e1;         /* sehr helles Gelb/Beige */
+  color: #c4947e;              /* warmes Braun */
+  border: 2px solid #ffd59e;   /* helles Orange als Rahmen */
+  border-radius: 10px;
+  padding: 18px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(80, 40, 10, 0.06);
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin: 0;
+}
+
+.quiz-option-btn:hover,
+.quiz-option-btn.selected {
+  background: #ffe29f;         /* helles Gelb beim Hover/Selected */
+  color: #d2691e;
+  border: 2px solid #d2691e;
 }
