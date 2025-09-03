@@ -45,8 +45,8 @@ export default function CardView() {
         )}
       </div>
       <div className="card-nav">
-        <button onClick={prevCard}>⏮️ Zurück</button>
-        <button onClick={nextCard}>Weiter ⏭️</button>
+        <button onClick={prevCard}>⏮️</button>
+        <button onClick={nextCard}>⏭️</button>
       </div>
     </div>
   );
