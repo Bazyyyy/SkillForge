@@ -94,6 +94,13 @@
   font-weight: bold;
 }
 
+.quiz-feedback.correct {
+  color: #388e3c;
+}
+.quiz-feedback.incorrect {
+  color: #d32f2f;
+}
+
 /* Optionen für die Antworten */
 .quiz-options {
   display: flex;
