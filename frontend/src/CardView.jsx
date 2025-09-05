@@ -30,7 +30,7 @@ export default function CardView() {
     <div className="cardview-container">
       <div className="card">
         <div className="card-question">
-          <strong>Frage {index + 1}:</strong>
+          <strong>Karte {index + 1}:</strong>
           <div>{current.question}</div>
         </div>
         {showAnswer ? (
@@ -45,8 +45,8 @@ export default function CardView() {
         )}
       </div>
       <div className="card-nav">
-        <button onClick={prevCard}>⏮️</button>
-        <button onClick={nextCard}>⏭️</button>
+        <button onClick={prevCard}>⏮️vorherige Karte</button>
+        <button onClick={nextCard}>nächste Karte⏭️</button>
       </div>
     </div>
   );

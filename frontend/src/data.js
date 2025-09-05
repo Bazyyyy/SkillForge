@@ -1,26 +1,169 @@
-// Diese Datei enthält alle Fragen und Antworten für die App.
-// Jede Frage ist ein Objekt mit "question" und "answer".
+// Karteikarten-Fragen und Antworten für den Lernmodus, gegliedert nach AWS-Kategorien
 
 export const questions = [
-  {
-    question: "Was ist die Hauptstadt von Deutschland?",
-    answer: "Berlin",
-  },
-  {
-    question: "Welches Element hat das chemische Symbol 'O'?",
-    answer: "Sauerstoff",
-  },
-  {
-    question: "Wer hat die Relativitätstheorie entwickelt?",
-    answer: "Albert Einstein",
-  },
-  {
-    question: "Wie viele Kontinente gibt es auf der Erde?",
-    answer: "Sieben",
-  },
-  {
-    question: "Was ist das größte Land der Welt?",
-    answer: "Russland",
-  },
-  // Du kannst hier beliebig viele weitere Fragen ergänzen!
+  // ☁️ Cloud Computing Begriffe
+  { question: "Was versteht man unter Cloud Computing?", answer: "IT-Ressourcen wie Rechenleistung und Speicher die über das Internet bereitgestellt sind." },
+  { question: "Was bedeutet Skalierbarkeit in der Cloud?", answer: "Möglichkeit, Systeme je nach Bedarf zu vergrößern oder zu verkleinern." },
+  { question: "Was ist Elastizität?", answer: "Systeme passen sich automatisch an wechselnde Anforderungen an." },
+  { question: "Was bedeutet Hochverfügbarkeit?", answer: "Systeme bleiben auch bei Ausfällen oder Fehlern verfügbar." },
+  { question: "Was ist das Pay-as-you-go-Modell?", answer: "Du zahlst nur für das, was du tatsächlich nutzt." },
+  { question: "Was ist der Unterschied zwischen CapEx und OpEx?", answer: "CapEx sind einmalige Kapitalkosten, OpEx sind laufende Betriebskosten." },
+  { question: "Was ist eine Public Cloud?", answer: "Dienste über das öffentliche Internet durch Drittanbieter bereitgestellt." },
+  { question: "Was ist eine Private Cloud?", answer: "Cloud-Infrastruktur wird exklusiv für eine Organisation betrieben." },
+  { question: "Was ist eine Hybrid Cloud?", answer: "Kombination aus Public und Private Cloud zur flexiblen Nutzung." },
+  { question: "Was ist IaaS?", answer: "Infrastructure as a Service – Basis-Infrastruktur wie Server, Speicher und Netzwerk auf Abruf." },
+  { question: "Was ist PaaS?", answer: "Platform as a Service – Entwicklungsplattformen mit vorgefertigter Umgebung." },
+  { question: "Was ist SaaS?", answer: "Software as a Service – Fertige Anwendungen direkt über den Browser nutzbar." },
+
+  // 🧩 Compute-Dienste
+  { question: "Was ist Amazon EC2?", answer: "Skalierbare virtuelle Server in der Cloud." },
+  { question: "Was ist AWS Lambda?", answer: "Führt Code aus, ohne Server zu verwalten (serverless)." },
+  { question: "Was ist Elastic Beanstalk?", answer: "Automatisiertes Deployment und Management von Web-Apps." },
+  { question: "Was ist AWS Fargate?", answer: "Serverless Container-Management für ECS und EKS." },
+  { question: "Was ist Amazon ECS?", answer: "Container-Orchestrierung mit eigener AWS-Integration." },
+  { question: "Was ist Amazon EKS?", answer: "Kubernetes-Orchestrierung für Container-Anwendungen." },
+  { question: "Was ist Amazon Lightsail?", answer: "Einfache Cloud-Plattform für kleinere Projekte/VPS." },
+  { question: "Was ist Auto Scaling?", answer: "Automatische Anpassung von EC2-Instanzen je nach Last." },
+  { question: "Was ist Amazon Batch?", answer: "Führt Batch-Verarbeitungsjobs effizient in der Cloud aus." },
+  { question: "Was sind AWS Step Functions?", answer: "Orchestriert serverlose Workflows zwischen AWS-Diensten." },
+  { question: "Was ist Amazon EventBridge?", answer: "Event-Bus zur Verbindung von Anwendungen über Ereignisse." },
+
+  // 📦 Speicher-Dienste
+  { question: "Was ist Amazon S3?", answer: "Objektspeicher für beliebige Datenmengen." },
+  { question: "Was ist Amazon EBS?", answer: "Blockspeicher für EC2 – wie eine virtuelle Festplatte." },
+  { question: "Was ist Amazon S3 Glacier?", answer: "Langzeit-Datenspeicher zu sehr niedrigen Kosten." },
+  { question: "Was ist Amazon FSx?", answer: "Vollverwaltetes Dateisystem für Windows oder Lustre." },
+  { question: "Was ist AWS Storage Gateway?", answer: "Brücke zwischen On-Premises und AWS-Cloud-Speicher." },
+  { question: "Was ist Amazon EFS?", answer: "Skalierbares, gemeinsam genutztes Dateisystem für EC2." },
+  { question: "Was ist AWS Backup?", answer: "Zentralisierte Backup-Lösung für AWS-Ressourcen." },
+
+  // 🗃️ Datenbank-Dienste
+  { question: "Was ist Amazon RDS?", answer: "Verwaltete relationale Datenbank (z. B. MySQL, PostgreSQL)." },
+  { question: "Was ist Amazon Aurora?", answer: "Hochperformante relationale Datenbank mit MySQL/PostgreSQL-Kompatibilität." },
+  { question: "Was ist Amazon DynamoDB?", answer: "NoSQL-Datenbank – schnell, skalierbar, serverless." },
+  { question: "Was ist Amazon ElastiCache?", answer: "In-Memory Cache-Service für schnelle Datenzugriffe." },
+  { question: "Was ist Amazon Redshift?", answer: "Data Warehouse für analytische Abfragen großer Datenmengen." },
+  { question: "Was ist Amazon Timestream?", answer: "Zeitreihen-Datenbank für IoT- und Betriebsdaten." },
+  { question: "Was ist Amazon Neptune?", answer: "Graphdatenbank für komplexe Beziehungsdaten." },
+  { question: "Was ist Amazon Athena?", answer: "SQL-Abfragen direkt auf Daten in Amazon S3." },
+  { question: "Was ist Amazon DocumentDB?", answer: "Dokumentenbasierte NoSQL-Datenbank kompatibel mit MongoDB." },
+  { question: "Was ist Amazon OpenSearch Service?", answer: "Vollverwalteter Such- und Analyse-Service für strukturierte und unstrukturierte Daten." },
+
+  // 🗃🌐 Netzwerk & Content Delivery
+  { question: "Was ist Amazon VPC?", answer: "Virtuelles privates Netzwerk in der AWS-Cloud." },
+  { question: "Was ist Amazon Route 53?", answer: "Skalierbarer DNS-Service mit Domain-Routing." },
+  { question: "Was ist Amazon CloudFront?", answer: "CDN zur globalen, schnellen Inhaltsauslieferung." },
+  { question: "Was ist ein Elastic Load Balancer?", answer: "Verteilt eingehenden Traffic auf Ressourcen." },
+  { question: "Was ist AWS Global Accelerator?", answer: "Optimiert Netzwerkwege für internationale Nutzer." },
+  { question: "Was ist AWS Direct Connect?", answer: "Dedizierte Netzwerkverbindung zwischen AWS und Rechenzentren." },
+  { question: "Was ist AWS Transit Gateway?", answer: "Verbindet mehrere VPCs und lokale Netzwerke zentral." },
+  { question: "Was ist AWS Network Firewall?", answer: "Erweiterte Netzwerksicherheit für VPCs." },
+
+  // 🏗️ Architekturkonzepte
+  { question: "Was ist das Well-Architected Framework?", answer: "Leitlinien für gute Cloud-Architekturen." },
+  { question: "Was bedeutet Hochverfügbarkeit in der Architektur?", answer: "Nutzung mehrerer Availability Zones/Regionen." },
+  { question: "Was ist Entkopplung?", answer: "Komponenten kommunizieren asynchron (z. B. via SQS/SNS)." },
+  { question: "Was ist lose Kopplung?", answer: "Systeme minimieren Abhängigkeiten für bessere Skalierbarkeit." },
+  { question: "Was bedeutet Resilienz?", answer: "Systeme bleiben trotz Fehlern funktionsfähig." },
+  { question: "Was ist Disaster Recovery?", answer: "Strategien wie Pilot Light, Warm Standby, Multi-Site." },
+  { question: "Was bedeutet Multi-AZ & Multi-Region?", answer: "Erhöhung der Ausfallsicherheit." },
+  { question: "Was ist Elastic Load Balancing?", answer: "Lastverteilung auf mehrere Ziele." },
+  { question: "Was ist Auto Scaling?", answer: "Dynamische Skalierung basierend auf Metriken." },
+  { question: "Was sind Microservices?", answer: "Architekturansatz mit kleinen, unabhängigen Diensten, die zusammenarbeiten." },
+  { question: "Was ist Caching?", answer: "Zwischenspeicherung von Daten zur Leistungssteigerung (z. B. mit ElastiCache)." },
+  { question: "Was ist Monitoring & Logging?", answer: "Überwachung und Protokollierung zur Fehlererkennung und Optimierung." },
+  { question: "Was bedeutet Security by Design?", answer: "Sicherheit wird von Anfang an in die Architektur integriert." },
+  { question: "Was ist Auto Recovery?", answer: "Automatische Wiederherstellung von Instanzen bei Ausfällen." },
+  { question: "Was ist Horizontal Scaling?", answer: "Hinzufügen weiterer Instanzen zur Lastverteilung." },
+  { question: "Was ist Vertical Scaling?", answer: "Erhöhung der Ressourcen einer einzelnen Instanz (z. B. mehr CPU/RAM)." },
+
+  // 🔐 Sicherheit & Zugriff
+  { question: "Was ist IAM?", answer: "Regelt, wer was in deiner AWS-Umgebung tun darf." },
+  { question: "Was sind Benutzer & Gruppen?", answer: "Identitäten und Rechte für Rollenverteilung." },
+  { question: "Was sind Rollen?", answer: "Temporäre Berechtigungen für Dienste oder externe Zugriffe." },
+  { question: "Was sind Policies?", answer: "JSON-Dokumente zur Definition von Berechtigungen." },
+  { question: "Was ist MFA?", answer: "Zusätzlicher Sicherheitsfaktor neben Passwort." },
+  { question: "Was ist AWS Shield?", answer: "Schutz vor DDoS-Angriffen." },
+  { question: "Was ist AWS WAF?", answer: "Firewall gegen schädliche Webanfragen." },
+  { question: "Was ist AWS KMS?", answer: "Verwaltung von Verschlüsselungsschlüsseln." },
+  { question: "Was ist Amazon Cognito?", answer: "Identitätsdienste für Apps und Benutzeranmeldung." },
+  { question: "Was ist Amazon Inspector?", answer: "Sicherheitsscans für EC2-Instanzen." },
+  { question: "Was ist Amazon GuardDuty?", answer: "Bedrohungserkennung für AWS-Konten." },
+  { question: "Was ist Amazon Macie?", answer: "Erkennt sensible Daten wie PII in S3." },
+  { question: "Was ist AWS Secrets Manager?", answer: "Verwaltung von Zugangsdaten und Passwörtern." },
+  { question: "Was sind Security Groups?", answer: "Firewalls für EC2 zur Traffic-Steuerung." },
+  { question: "Was sind Network ACLs?", answer: "Zugriffskontrolllisten für Subnets." },
+  { question: "Was ist Amazon Detective?", answer: "Analyse und Visualisierung von Sicherheitsvorfällen." },
+  { question: "Was ist AWS STS?", answer: "Erzeugt temporäre Zugangstoken für sicheren Zugriff auf AWS-Ressourcen." },
+  { question: "Was ist AWS Directory Service?", answer: "Verwaltet Benutzeridentitäten über Microsoft AD oder Simple AD in der Cloud." },
+
+  // 📜 Compliance & Governance
+  { question: "Was ist AWS Artifact?", answer: "Zugriff auf Compliance-Dokumente und Zertifikate." },
+  { question: "Was sind AWS Organizations?", answer: "Verwaltung mehrerer AWS-Konten mit zentralen Richtlinien." },
+  { question: "Was ist AWS Control Tower?", answer: "Vorkonfigurierte Landing Zone für sichere Multi-Account-Setups." },
+  { question: "Was ist AWS CloudTrail?", answer: "Nachvollziehbarkeit von API-Aufrufen & Änderungen." },
+  { question: "Was ist AWS Config?", answer: "Überprüfung von Konformität und Ressourcenzuständen." },
+  { question: "Was ist AWS License Manager?", answer: "Verwaltung von Softwarelizenzen in AWS." },
+  { question: "Was ist AWS Budgets?", answer: "Setzt Budgetgrenzen und alarmiert bei Überschreitungen." },
+  { question: "Was ist AWS Trusted Advisor?", answer: "Empfehlungen zur Kostensenkung, Sicherheit und Leistung." },
+  { question: "Was ist AWS Service Catalog?", answer: "Katalog genehmigter Services für Governance." },
+  { question: "Was ist AWS Audit Manager?", answer: "Erleichtert Auditvorbereitung und Nachweise." },
+  { question: "Was ist AWS Backup?", answer: "Einhaltung von Backup-Richtlinien über Services hinweg." },
+  { question: "Was ist AWS CloudFormation?", answer: "Standardisierte Bereitstellungen per IaC." },
+  { question: "Was sind Tagging-Strategien?", answer: "Konsistente Ressourcenauszeichnung für Kosten und Governance." },
+  { question: "Was sind Cost Allocation Tags?", answer: "Tags zur Zuordnung von Kostenstellen/Projekten." },
+  { question: "Was sind SCPs?", answer: "Service Control Policies – Account-übergreifende Begrenzungen von Berechtigungen." },
+  { question: "Was sind KMS Key Policies?", answer: "Steuerung von Zugriffen auf Verschlüsselungsschlüssel." },
+  { question: "Was ist Data Residency?", answer: "Steuerung von Speicherorten für Daten." },
+  { question: "Was ist GDPR/DSGVO?", answer: "EU-Datenschutzanforderungen, Shared Responsibility Model gilt." },
+
+  // 💰 Preisgestaltung & Kostenmodelle
+  { question: "Was ist das On-Demand-Modell?", answer: "Bezahle pro Nutzung ohne langfristige Bindung." },
+  { question: "Was sind Savings Plans?", answer: "Flexible Preisnachlässe für Compute (EC2/Lambda/Fargate)." },
+  { question: "Was sind Reserved Instances?", answer: "Rabatte für langfristige EC2-Nutzung." },
+  { question: "Was sind Spot Instances?", answer: "Günstige, aber unterbrechbare Compute-Kapazität." },
+  { question: "Was ist das Free Tier?", answer: "Kostenfreie Nutzung bestimmter Kontingente für Einsteiger." },
+  { question: "Was ist der Cost Explorer?", answer: "Visualisierung und Analyse von Ausgaben." },
+  { question: "Was sind AWS Budgets?", answer: "Warnungen bei Budgetüberschreitungen." },
+  { question: "Was ist der Compute Optimizer?", answer: "Empfehlungen zur rechten Dimensionierung." },
+
+  // 🧰 AWS Support-Pläne
+  { question: "Was ist der Basic Support-Plan?", answer: "Kostenloser Support, Dokumentation und Foren." },
+  { question: "Was ist der Developer Support-Plan?", answer: "E-Mail-Support während Geschäftszeiten für Entwickler." },
+  { question: "Was ist der Business Support-Plan?", answer: "Rund-um-die-Uhr-Support per Chat/Telefon mit schneller Antwortzeit." },
+  { question: "Was ist der Enterprise Support-Plan?", answer: "Persönlicher Technical Account Manager und proaktive Überwachung." },
+
+  // 🌐 AWS Global Infrastructure
+  { question: "Was ist eine AWS Region?", answer: "Geografischer Bereich mit mehreren Verfügbarkeitszonen." },
+  { question: "Was ist eine Availability Zone (AZ)?", answer: "Rechenzentrum mit Isolation für hohe Verfügbarkeit." },
+  { question: "Was ist eine Edge Location?", answer: "Verteilungsstandort für DNS & CDN weltweit." },
+  { question: "Was ist eine Local Zone?", answer: "Regionserweiterung mit geringer Latenz für lokale Nutzer." },
+  { question: "Was ist eine Wavelength Zone?", answer: "Integration mit 5G-Netzen für ultraniedrige Latenz." },
+  { question: "Was ist AWS Outposts?", answer: "AWS-Hardware vor Ort für hybride Cloud-Nutzung." },
+  { question: "Was ist der Global Accelerator?", answer: "Optimiert globale Verbindungspfade zu Anwendungen." },
+
+  // 🚀 Cloud Adoption & Strategie
+  { question: "Was ist das Well-Architected Framework?", answer: "AWS-Leitlinien für gute Cloud-Architektur." },
+  { question: "Was sind die 6 Säulen des Well-Architected Framework?", answer: "Sicherheit, Leistung, Zuverlässigkeit, Kosten, Betrieb, Nachhaltigkeit." },
+  { question: "Was ist AWS CloudTrail?", answer: "Protokolliert API-Aufrufe & Aktivitäten im AWS-Konto." },
+  { question: "Was ist AWS Config?", answer: "Überwacht Ressourcen-Konfigurationen." },
+  { question: "Was ist AWS Service Catalog?", answer: "Verwaltung genehmigter Services & Anwendungen." },
+  { question: "Was ist die AWS Management Console?", answer: "Webportal zur Nutzung & Verwaltung von AWS-Diensten." },
+  { question: "Was ist die AWS CLI?", answer: "Kommandozeilen-Tool zur Steuerung von AWS-Ressourcen." },
+  { question: "Was ist AWS CloudFormation?", answer: "Infrastruktur-as-Code für automatisierte Bereitstellung." },
+  { question: "Was ist das Well-Architected Tool?", answer: "Bewertet und optimiert Architekturen gemäß Best Practices." },
+
+  // 🔄 AWS Integration & Messaging
+  { question: "Was ist Amazon SQS?", answer: "Warteschlangendienst zur Entkopplung von Komponenten – Nachrichten werden zwischengespeichert." },
+  { question: "Was ist Amazon SNS?", answer: "Benachrichtigungsdienst im Push-Modell – sendet Nachrichten an viele Empfänger gleichzeitig." },
+  { question: "Was ist Amazon MQ?", answer: "Verwalteter Message Broker für Standardprotokolle wie AMQP, MQTT, STOMP – ideal für Legacy-Systeme." },
+  { question: "Was ist Amazon Kinesis Data Streams?", answer: "Echtzeit-Datenstreaming zur Erfassung und Verarbeitung großer Datenmengen." },
+  { question: "Was ist Amazon Kinesis Data Firehose?", answer: "Liefert Streaming-Daten automatisch an Ziele wie S3, Redshift oder Splunk." },
+  { question: "Was ist Amazon Kinesis Data Analytics?", answer: "Echtzeit-Analyse von Streaming-Daten mit SQL." },
+  { question: "Was ist Amazon EventBridge?", answer: "Event-Bus zur Verbindung von Anwendungen über Ereignisse – ersetzt teilweise CloudWatch Events." },
+  { question: "Was sind AWS Step Functions?", answer: "Orchestriert serverlose Workflows zwischen AWS-Diensten." },
+  { question: "Was ist AWS AppSync?", answer: "GraphQL-API-Service zur Synchronisierung von Daten zwischen Frontend und Backend." },
+  { question: "Was ist AWS Simple Workflow Service (SWF)?", answer: "Koordiniert Aufgaben für komplexe Workflows – eher für Legacy-Anwendungen." },
+  { question: "Was ist AWS Glue?", answer: "Serverloser ETL-Service zur Datenintegration und -transformation." },
+  { question: "Was ist AWS Data Pipeline?", answer: "Dienst zur Planung und Automatisierung von Datenbewegungen und -verarbeitung." },
 ];
