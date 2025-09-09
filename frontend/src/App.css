@@ -89,6 +89,10 @@ footer {
   justify-content: center;
   gap: 32px;
   margin-top: 40px;
+  max-width: 320px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-menu button {
@@ -102,9 +106,5 @@ footer {
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   box-shadow: 0 2px 8px rgba(80, 40, 10, 0.10);
-}
-
-.main-menu button:hover {
-  background: #d2691e;
-  color: #fff8e1;
+  width: 100%;
 }

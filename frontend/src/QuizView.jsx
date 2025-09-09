@@ -38,6 +38,7 @@ export default function QuizView() {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([]);
+  const [correctQuestions, setCorrectQuestions] = useState([]); // Array mit Indexen der richtig beantworteten Fragen
   const current = questions[currentIdx];
 
   useEffect(() => {
@@ -61,7 +62,6 @@ export default function QuizView() {
     e.preventDefault();
     let isCorrect = false;
     if (Array.isArray(current.answer)) {
-      // Vergleiche Arrays unabhängig von Reihenfolge
       const sortedSelected = [...selectedOption].sort();
       const sortedAnswer = [...current.answer].sort();
       isCorrect =
@@ -73,6 +73,9 @@ export default function QuizView() {
     if (isCorrect) {
       setScore(s => s + 1);
       setFeedback("Richtig! 🎉");
+      if (!correctQuestions.includes(currentIdx)) {
+        setCorrectQuestions([...correctQuestions, currentIdx]);
+      }
       if ((score + 1) % 3 === 0) setLevel(l => l + 1);
       const newAch = achievementsList.filter(
         a => a.points === score + 1 && !achievements.includes(a.text)
@@ -94,14 +97,15 @@ export default function QuizView() {
   }
 
   function nextQuestion() {
-    let nextIdx;
-    if (answeredQuestions.length + 1 >= questions.length) {
-      setFeedback("Quiz beendet! Du hast alle Fragen beantwortet.");
+    if (correctQuestions.length >= questions.length) {
+      setFeedback("Quiz beendet! Du hast alle Fragen richtig beantwortet.");
       return;
     }
-    do {
-      nextIdx = getRandomIndex(questions.length, currentIdx);
-    } while (answeredQuestions.includes(nextIdx));
+    let nextIdx;
+    const remaining = questions
+      .map((_, idx) => idx)
+      .filter(idx => !correctQuestions.includes(idx));
+    nextIdx = remaining[Math.floor(Math.random() * remaining.length)];
     setCurrentIdx(nextIdx);
     setShowResult(false);
     setFeedback("");
@@ -116,13 +120,48 @@ export default function QuizView() {
     setAchievements([]);
     setAnsweredQuestions([]);
     setSelectedOption(null);
+    setCorrectQuestions([]);
   }
+
+  // Fortschritt berechnen
+  const percent = Math.round((correctQuestions.length / questions.length) * 100);
 
   return (
     <div className="quizview-container">
       <div className="quiz-status">
         <span>Level: {level}</span>
         <span>Punkte: {score}</span>
+      </div>
+      {/* Fortschrittsbalken */}
+      <div style={{width: "100%", marginBottom: "18px"}}>
+        <div style={{
+          background: "#ffe29f",
+          borderRadius: "8px",
+          height: "22px",
+          width: "100%",
+          boxShadow: "0 1px 4px rgba(80,40,10,0.07)",
+          border: "1.5px solid #d2691e",
+          position: "relative"
+        }}>
+          <div style={{
+            background: "#388e3c",
+            height: "100%",
+            borderRadius: "8px",
+            width: `${percent}%`,
+            transition: "width 0.4s"
+          }}></div>
+          <span style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "#4e2e0e",
+            fontWeight: "bold",
+            fontSize: "1rem"
+          }}>
+            {percent}% richtig beantwortet
+          </span>
+        </div>
       </div>
       {achievements.length > 0 && (
         <div className="achievements">
@@ -188,4 +227,20 @@ export default function QuizView() {
       </div>
     </div>
   );
+}
+
+// Beispiel in QuizView.jsx
+async function saveProgress(email, progress) {
+  await fetch("http://localhost:5000/api/save-progress", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, progress })
+  });
+}
+
+// Beispiel in QuizView.jsx
+async function loadProgress(email) {
+  const res = await fetch(`http://localhost:5000/api/load-progress?email=${encodeURIComponent(email)}`);
+  const data = await res.json();
+  return data.progress;
 }
