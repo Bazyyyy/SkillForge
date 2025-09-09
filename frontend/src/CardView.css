@@ -1,47 +1,80 @@
-/* Container für die Karteikartenansicht */
+/* Hauptcontainer mit Titel */
 .cardview-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  background: #f8f6f2;
+  min-height: 100vh;
 }
 
-/* Die Karte selbst */
+.cardview-title {
+  margin-bottom: 20px;
+  color: #4e2e0e;
+}
+
+/* Szene mit Perspektive für Flip-Effekt */
+.card-scene {
+  width: 320px;
+  height: 220px;
+  perspective: 1200px;
+  margin-bottom: 40px; /* genug Abstand zu den Buttons */
+}
+
+/* Karte selbst */
 .card {
-  background: #fff3e0;
-  border: 2.5px solid #d2691e;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(80, 40, 10, 0.10);
-  padding: 28px 22px;
-  min-width: 260px;
-  max-width: 340px;
-  margin-bottom: 18px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  transform-origin: center center; /* Drehpunkt zentrieren */
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* Vorder- und Rückseite */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #fffdf7;
+  border: 1.5px solid #c7a27c;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 1.1rem;
+  background-image: linear-gradient(#f7e9d7 1px, transparent 1px);
+  background-size: 100% 24px;
 }
 
-/* Frage und Antwort */
-.card-question {
-  color: #a0522d;
-  margin-bottom: 18px;
+.card-front {
+  color: #5c3b1e;
 }
 
-.card-answer {
-  color: #388e3c;
-  margin-top: 12px;
-  font-weight: bold;
+.card-back {
+  color: #2e6f3e;
+  transform: rotateY(180deg);
 }
 
-/* Button zum Aufdecken der Antwort */
+/* Buttons auf der Karte */
 .reveal-btn {
   background: #ffb347;
   color: #4e2e0e;
-  border: 2px solid #d2691e;
-  border-radius: 8px;
-  padding: 10px 22px;
+  border: 1.5px solid #d2691e;
+  border-radius: 6px;
+  padding: 8px 14px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 16px;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -50,18 +83,19 @@
   color: #fff8e1;
 }
 
-/* Navigation unter der Karte */
+/* Navigation unter der Karte, immer frei */
 .card-nav {
   display: flex;
-  gap: 16px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .card-nav button {
   background: #ffe29f;
   color: #a0522d;
-  border: 2px solid #d2691e;
-  border-radius: 8px;
-  padding: 8px 18px;
+  border: 1.5px solid #d2691e;
+  border-radius: 6px;
+  padding: 8px 16px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
