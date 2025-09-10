@@ -3,80 +3,98 @@ import "./App.css";
 import CardView from "./CardView.jsx";
 import QuizView from "./QuizView.jsx";
 
-// Dummy-Funktionen, damit die App nicht abstürzt
+// Fortschritt speichern
 async function saveProgress(email, progress) {
-  // Hier könntest du später einen API-Call einbauen
-  return true;
+  await fetch("http://localhost:5000/api/save-progress", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, progress })
+  });
 }
 
+// Fortschritt laden
 async function loadProgress(email) {
-  // Hier könntest du später einen API-Call einbauen
-  return null;
+  const res = await fetch(`http://localhost:5000/api/load-progress?email=${encodeURIComponent(email)}`);
+  const data = await res.json();
+  return data.progress;
 }
 
-// Die Hauptkomponente der App. Sie steuert die Ansicht (Karteikarten oder Quiz)
-// und zeigt das passende Modul an. Das Design ist freundlich und erinnert an eine Schmiede.
+// Registrierung
+async function registerUser(email, password) {
+  const res = await fetch("http://localhost:5000/api/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  return await res.json();
+}
+
+// Login
+async function loginUser(email, password) {
+  const res = await fetch("http://localhost:5000/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  return await res.json();
+}
+
 export default function App() {
   const [view, setView] = useState("menu");
   const [loggedIn, setLoggedIn] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [registeredUser, setRegisteredUser] = useState(null);
   const [loginError, setLoginError] = useState("");
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
   const [achievements, setAchievements] = useState([]);
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [correctQuestions, setCorrectQuestions] = useState([]);
 
-  function handleBack() {
-    setView("menu");
-  }
-
-  function handleLogin(e) {
+  // Login mit Backend
+  async function handleLogin(e) {
     e.preventDefault();
-    if (
-      registeredUser &&
-      email === registeredUser.email &&
-      password === registeredUser.password
-    ) {
+    const result = await loginUser(email, password);
+    if (result.success) {
       setLoggedIn(true);
       setLoginError("");
+      if (result.progress) {
+        setScore(result.progress.score || 0);
+        setLevel(result.progress.level || 1);
+        setAchievements(result.progress.achievements || []);
+        setAnsweredQuestions(result.progress.answeredQuestions || []);
+        setCorrectQuestions(result.progress.correctQuestions || []);
+      }
     } else {
-      setLoginError("Falsche E-Mail oder Passwort.");
+      setLoginError(result.error || "Falsche E-Mail oder Passwort.");
     }
   }
 
-  function handleRegister(e) {
+  // Registrierung mit Backend
+  async function handleRegister(e) {
     e.preventDefault();
-    if (email.trim() && password.trim()) {
-      setRegisteredUser({ email, password });
+    const result = await registerUser(email, password);
+    if (result.success) {
       setLoggedIn(true);
       setShowRegister(false);
       setLoginError("");
+      setScore(0);
+      setLevel(1);
+      setAchievements([]);
+      setAnsweredQuestions([]);
+      setCorrectQuestions([]);
+    } else {
+      setLoginError(result.error || "Registrierung fehlgeschlagen.");
     }
   }
 
-  // Nach Login: Fortschritt laden und State setzen
+  // Fortschritt speichern nach jeder Änderung
   useEffect(() => {
     if (loggedIn && email) {
-      loadProgress(email).then(progress => {
-        if (progress) {
-          setScore(progress.score);
-          setLevel(progress.level);
-          setAchievements(progress.achievements);
-          setAnsweredQuestions(progress.answeredQuestions);
-        }
-      });
+      saveProgress(email, { score, level, achievements, answeredQuestions, correctQuestions });
     }
-  }, [loggedIn, email]);
-
-  // Nach jeder Antwort: Fortschritt speichern
-  useEffect(() => {
-    if (loggedIn && email) {
-      saveProgress(email, { score, level, achievements, answeredQuestions });
-    }
-  }, [score, level, achievements, answeredQuestions]);
+  }, [score, level, achievements, answeredQuestions, correctQuestions, loggedIn, email]);
 
   return (
     <div className="app-container">
@@ -118,6 +136,7 @@ export default function App() {
                   >
                     Zurück zum Login
                   </button>
+                  {loginError && <div style={{color: "#d32f2f"}}>{loginError}</div>}
                 </form>
               ) : (
                 <form onSubmit={handleLogin} style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "16px"}}>
@@ -165,14 +184,25 @@ export default function App() {
         )}
         {view === "cards" && (
           <>
-            <button className="back-btn" onClick={handleBack} style={{position: "absolute", top: 20, left: 20}}>← Zurück zum Hauptmenü</button>
+            <button className="back-btn" onClick={() => setView("menu")} style={{position: "absolute", top: 20, left: 20}}>← Zurück zum Hauptmenü</button>
             <CardView />
           </>
         )}
         {view === "quiz" && (
           <>
-            <button className="back-btn" onClick={handleBack} style={{position: "absolute", top: 20, left: 20}}>← Zurück zum Hauptmenü</button>
-            <QuizView />
+            <button className="back-btn" onClick={() => setView("menu")} style={{position: "absolute", top: 20, left: 20}}>← Zurück zum Hauptmenü</button>
+            <QuizView
+              score={score}
+              setScore={setScore}
+              level={level}
+              setLevel={setLevel}
+              achievements={achievements}
+              setAchievements={setAchievements}
+              answeredQuestions={answeredQuestions}
+              setAnsweredQuestions={setAnsweredQuestions}
+              correctQuestions={correctQuestions}
+              setCorrectQuestions={setCorrectQuestions}
+            />
           </>
         )}
       </main>

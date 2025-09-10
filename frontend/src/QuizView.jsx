@@ -28,17 +28,24 @@ function getRandomIndex(max, exclude) {
   return idx;
 }
 
-export default function QuizView() {
-  const [score, setScore] = useState(0);
-  const [level, setLevel] = useState(1);
+export default function QuizView({
+  score,
+  setScore,
+  level,
+  setLevel,
+  achievements,
+  setAchievements,
+  answeredQuestions,
+  setAnsweredQuestions,
+  correctQuestions,
+  setCorrectQuestions
+}) {
+  // Nur lokale States für quiz-interne Dinge:
   const [currentIdx, setCurrentIdx] = useState(getRandomIndex(questions.length));
   const [showResult, setShowResult] = useState(false);
   const [feedback, setFeedback] = useState("");
-  const [achievements, setAchievements] = useState([]);
-  const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([]);
-  const [correctQuestions, setCorrectQuestions] = useState([]); // Array mit Indexen der richtig beantworteten Fragen
   const current = questions[currentIdx];
 
   useEffect(() => {
