@@ -1,16 +1,16 @@
 export const questions = [
   {
-    question: "A company plans to use an Amazon Snowball Edge device to transfer files to the AWS Cloud.\nWhich activities related to a Snowball Edge device are available to the company at no cost?",
+    question: "Ein Unternehmen plant, ein Amazon Snowball Edge-Gerät zu verwenden, um Dateien in die AWS Cloud zu übertragen.\nWelche Aktivitäten im Zusammenhang mit einem Snowball Edge-Gerät sind für das Unternehmen kostenlos verfügbar?",
     options: [
-      "A. Use of the Snowball Edge appliance for a 10-day period",
-      "B. The transfer of data out of Amazon S3 and to the Snowball Edge appliance",
-      "C. The transfer of data from the Snowball Edge appliance into Amazon S3",
-      "D. Daily use of the Snowball Edge appliance after 10 days"
+      "A. Nutzung des Snowball Edge-Geräts für einen Zeitraum von 10 Tagen",
+      "B. Übertragung von Daten aus Amazon S3 auf das Snowball Edge-Gerät",
+      "C. Übertragung von Daten vom Snowball Edge-Gerät in Amazon S3",
+      "D. Tägliche Nutzung des Snowball Edge-Geräts nach 10 Tagen"
     ],
-    answer: "C. The transfer of data from the Snowball Edge appliance into Amazon S3"
+    answer: "C. Übertragung von Daten vom Snowball Edge-Gerät in Amazon S3"
   },
   {
-    question: "A company has deployed applications on Amazon EC2 instances. The company needs to assess application vulnerabilities and must identify infrastructure deployments that do not meet best practices.\nWhich AWS service can the company use to meet these requirements?",
+    question: "Ein Unternehmen hat Anwendungen auf Amazon EC2-Instanzen bereitgestellt. Das Unternehmen muss Anwendungsschwachstellen bewerten und Infrastruktur-Bereitstellungen identifizieren, die nicht den Best Practices entsprechen.\nWelchen AWS-Dienst kann das Unternehmen verwenden, um diese Anforderungen zu erfüllen?",
     options: [
       "A. AWS Trusted Advisor",
       "B. Amazon Inspector",
@@ -20,47 +20,47 @@ export const questions = [
     answer: "B. Amazon Inspector"
   },
   {
-    question: "A company has a centralized group of users with large file storage requirements that have exceeded the space available on premises. The company wants to extend its file storage capabilities for this group while retaining the performance benefit of sharing content locally.\nWhat is the MOST operationally efficient AWS solution for this scenario?",
+    question: "Ein Unternehmen hat eine zentrale Benutzergruppe mit großem Speicherbedarf, der den verfügbaren Speicherplatz vor Ort überschritten hat. Das Unternehmen möchte die Dateispeicherkapazitäten für diese Gruppe erweitern und gleichzeitig die Vorteile lokaler Performance beibehalten.\nWas ist die betrieblich effizienteste AWS-Lösung für dieses Szenario?",
     options: [
-      "A. Create an Amazon S3 bucket for each user. Mount each bucket by using an S3 file system mounting utility.",
-      "B. Configure and deploy an AWS Storage Gateway file gateway. Connect each user’s workstation to the file gateway.",
-      "C. Move each user’s working environment to Amazon WorkSpaces. Set up an Amazon WorkDocs account for each user.",
-      "D. Deploy an Amazon EC2 instance and attach an Amazon Elastic Block Store (Amazon EBS) Provisioned IOPS volume. Share the EBS volume directly with the users."
+      "A. Erstellen eines Amazon S3-Buckets für jeden Benutzer. Jeden Bucket mit einem S3-Dateisystem-Mounting-Tool einbinden.",
+      "B. Konfigurieren und Bereitstellen eines AWS Storage Gateway File Gateway. Jede Workstation des Benutzers mit dem File Gateway verbinden.",
+      "C. Arbeitsumgebung jedes Benutzers zu Amazon WorkSpaces migrieren. Ein Amazon WorkDocs-Konto für jeden Benutzer einrichten.",
+      "D. Eine Amazon EC2-Instanz bereitstellen und ein Amazon Elastic Block Store (Amazon EBS) Provisioned IOPS-Volume anhängen. Das EBS-Volume direkt mit den Benutzern teilen."
     ],
-    answer: "B. Configure and deploy an AWS Storage Gateway file gateway. Connect each user’s workstation to the file gateway."
+    answer: "B. Konfigurieren und Bereitstellen eines AWS Storage Gateway File Gateway. Jede Workstation des Benutzers mit dem File Gateway verbinden."
   },
   {
-    question: "According to security best practices, how should an Amazon EC2 instance be given access to an Amazon S3 bucket?",
+    question: "Gemäß den Sicherheits-Best Practices: Wie sollte einer Amazon EC2-Instanz Zugriff auf einen Amazon S3-Bucket gewährt werden?",
     options: [
-      "A. Hard code an IAM user’s secret key and access key directly in the application, and upload the file.",
-      "B. Store the IAM user’s secret key and access key in a text file on the EC2 instance, read the keys, then upload the file.",
-      "C. Have the EC2 instance assume a role to obtain the privileges to upload the file.",
-      "D. Modify the S3 bucket policy so that any service can upload to it at any time."
+      "A. IAM-Benutzerschlüssel direkt in den Anwendungscode schreiben und die Datei hochladen.",
+      "B. Die IAM-Benutzerschlüssel in einer Textdatei auf der EC2-Instanz speichern, auslesen und dann die Datei hochladen.",
+      "C. Die EC2-Instanz eine Rolle übernehmen lassen, um die Berechtigungen zum Hochladen der Datei zu erhalten.",
+      "D. Die S3-Bucket-Richtlinie so ändern, dass jeder Dienst jederzeit hochladen kann."
     ],
-    answer: "C. Have the EC2 instance assume a role to obtain the privileges to upload the file."
+    answer: "C. Die EC2-Instanz eine Rolle übernehmen lassen, um die Berechtigungen zum Hochladen der Datei zu erhalten."
   },
   {
-    question: "Which option is a customer responsibility when using Amazon DynamoDB under the AWS Shared Responsibility Model?",
+    question: "Welche Option ist eine Kundenverantwortung bei der Nutzung von Amazon DynamoDB im Rahmen des AWS Shared Responsibility Model?",
     options: [
-      "A. Physical security of DynamoDB",
-      "B. Patching of DynamoDB",
-      "C. Access to DynamoDB tables",
-      "D. Encryption of data at rest in DynamoDB"
+      "A. Physische Sicherheit von DynamoDB",
+      "B. Patchen von DynamoDB",
+      "C. Zugriff auf DynamoDB-Tabellen",
+      "D. Verschlüsselung von Daten im Ruhezustand in DynamoDB"
     ],
-    answer: "C. Access to DynamoDB tables"
+    answer: "C. Zugriff auf DynamoDB-Tabellen"
   },
   {
-    question: "Which option is a perspective that includes foundational capabilities of the AWS Cloud Adoption Framework (AWS CAF)?",
+    question: "Welche Option ist eine Perspektive, die grundlegende Fähigkeiten des AWS Cloud Adoption Framework (AWS CAF) umfasst?",
     options: [
-      "A. Sustainability",
-      "B. Performance efficiency",
+      "A. Nachhaltigkeit",
+      "B. Performance-Effizienz",
       "C. Governance",
-      "D. Reliability"
+      "D. Zuverlässigkeit"
     ],
     answer: "C. Governance"
   },
   {
-    question: "A company is running and managing its own Docker environment on Amazon EC2 instances. The company wants an alternative to help manage cluster size, scheduling, and environment maintenance.\nWhich AWS service meets these requirements?",
+    question: "Ein Unternehmen betreibt und verwaltet seine eigene Docker-Umgebung auf Amazon EC2-Instanzen. Es sucht nach einer Alternative, um Clustergröße, Planung und Wartung der Umgebung zu verwalten.\nWelcher AWS-Dienst erfüllt diese Anforderungen?",
     options: [
       "A. AWS Lambda",
       "B. Amazon RDS",
@@ -70,17 +70,17 @@ export const questions = [
     answer: "C. AWS Fargate"
   },
   {
-    question: "A company wants to run a NoSQL database on Amazon EC2 instances.\nWhich task is the responsibility of AWS in this scenario?",
+    question: "Ein Unternehmen möchte eine NoSQL-Datenbank auf Amazon EC2-Instanzen betreiben.\nWelche Aufgabe liegt in der Verantwortung von AWS in diesem Szenario?",
     options: [
-      "A. Update the guest operating system of the EC2 instances.",
-      "B. Maintain high availability at the database layer.",
-      "C. Patch the physical infrastructure that hosts the EC2 instances.",
-      "D. Configure the security group firewall."
+      "A. Aktualisieren des Gastbetriebssystems der EC2-Instanzen",
+      "B. Sicherstellen der hohen Verfügbarkeit auf Datenbankebene",
+      "C. Patchen der physischen Infrastruktur, auf der die EC2-Instanzen laufen",
+      "D. Konfigurieren der Firewall der Sicherheitsgruppe"
     ],
-    answer: "C. Patch the physical infrastructure that hosts the EC2 instances."
+    answer: "C. Patchen der physischen Infrastruktur, auf der die EC2-Instanzen laufen"
   },
   {
-    question: "Which AWS services or tools can identify rightsizing opportunities for Amazon EC2 instances? (Choose two.)",
+    question: "Welche AWS-Dienste oder -Tools können Möglichkeiten zur Anpassung der Größe von Amazon EC2-Instanzen identifizieren? (Wählen Sie zwei.)",
     options: [
       "A. AWS Cost Explorer",
       "B. AWS Billing Conductor",
@@ -91,28 +91,28 @@ export const questions = [
     answer: ["A. AWS Cost Explorer", "E. AWS Compute Optimizer"]
   },
   {
-    question: "Which of the following are benefits of using AWS Trusted Advisor? (Choose two.)",
+    question: "Welche der folgenden Vorteile bietet AWS Trusted Advisor? (Wählen Sie zwei.)",
     options: [
-      "A. Providing high-performance container orchestration",
-      "B. Creating and rotating encryption keys",
-      "C. Detecting underutilized resources to save costs",
-      "D. Improving security by proactively monitoring the AWS environment",
-      "E. Implementing enforced tagging across AWS resources"
+      "A. Bereitstellung von leistungsstarkem Container-Orchestrierungsservice",
+      "B. Erstellen und Rotieren von Verschlüsselungsschlüsseln",
+      "C. Erkennen von ungenutzten Ressourcen zur Kosteneinsparung",
+      "D. Verbesserung der Sicherheit durch proaktive Überwachung der AWS-Umgebung",
+      "E. Durchsetzung von Tagging-Richtlinien für AWS-Ressourcen"
     ],
-    answer: ["C. Detecting underutilized resources to save costs", "D. Improving security by proactively monitoring the AWS environment"]
+    answer: ["C. Erkennen von ungenutzten Ressourcen zur Kosteneinsparung", "D. Verbesserung der Sicherheit durch proaktive Überwachung der AWS-Umgebung"]
   },
   {
-    question: "Which of the following is an advantage that users experience when they move on-premises workloads to the AWS Cloud?",
+    question: "Welchen Vorteil haben Benutzer, wenn sie lokale Workloads in die AWS Cloud verschieben?",
     options: [
-      "A. Elimination of expenses for running and maintaining data centers",
-      "B. Price discounts that are identical to discounts from hardware providers",
-      "C. Distribution of all operational controls to AWS",
-      "D. Elimination of operational expenses"
+      "A. Beseitigung der Kosten für den Betrieb und die Wartung von Rechenzentren",
+      "B. Preisnachlässe, die identisch mit Rabatten von Hardwareanbietern sind",
+      "C. Verlagerung aller betrieblichen Kontrollen auf AWS",
+      "D. Beseitigung der Betriebskosten"
     ],
-    answer: "A. Elimination of expenses for running and maintaining data centers"
+    answer: "A. Beseitigung der Kosten für den Betrieb und die Wartung von Rechenzentren"
   },
   {
-    question: "A company wants to manage deployed IT services and govern its infrastructure as code (IaC) templates.\nWhich AWS service will meet this requirement?",
+    question: "Ein Unternehmen möchte bereitgestellte IT-Dienste verwalten und seine Infrastruktur-als-Code (IaC)-Vorlagen steuern.\nWelcher AWS-Dienst erfüllt diese Anforderung?",
     options: [
       "A. AWS Resource Explorer",
       "B. AWS Service Catalog",
@@ -122,7 +122,7 @@ export const questions = [
     answer: "B. AWS Service Catalog"
   },
   {
-    question: "Which AWS service or tool helps users visualize, understand, and manage spending and usage over time?",
+    question: "Welcher AWS-Dienst oder welches Tool hilft Benutzern dabei, Ausgaben und Nutzung im Zeitverlauf zu visualisieren, zu verstehen und zu verwalten?",
     options: [
       "A. AWS Organizations",
       "B. AWS Pricing Calculator",
@@ -132,7 +132,7 @@ export const questions = [
     answer: "C. AWS Cost Explorer"
   },
   {
-    question: "A company is using a central data platform to manage multiple types of data for its customers. The company wants to use AWS services to discover, transform, and visualize the data.\nWhich combination of AWS services should the company use to meet these requirements? (Choose two.)",
+    question: "Ein Unternehmen verwendet eine zentrale Datenplattform, um verschiedene Datentypen für seine Kunden zu verwalten. Es möchte AWS-Dienste verwenden, um die Daten zu entdecken, zu transformieren und zu visualisieren.\nWelche Kombination von AWS-Diensten sollte das Unternehmen verwenden? (Wählen Sie zwei.)",
     options: [
       "A. AWS Glue",
       "B. Amazon Elastic File System (Amazon EFS)",
@@ -143,7 +143,7 @@ export const questions = [
     answer: ["A. AWS Glue", "D. Amazon QuickSight"]
   },
   {
-    question: "A global company wants to migrate its third-party applications to the AWS Cloud. The company wants help from a global team of experts to complete the migration faster and more reliably in accordance with AWS internal best practices.\nWhich AWS service or resource will meet these requirements?",
+    question: "Ein globales Unternehmen möchte seine Drittanbieteranwendungen in die AWS Cloud migrieren. Es möchte Unterstützung von einem globalen Expertenteam, um die Migration schneller und zuverlässiger gemäß den internen Best Practices von AWS abzuschließen.\nWelcher AWS-Dienst oder welche Ressource erfüllt diese Anforderung?",
     options: [
       "A. AWS Support",
       "B. AWS Professional Services",
@@ -153,17 +153,17 @@ export const questions = [
     answer: "B. AWS Professional Services"
   },
   {
-    question: "An e-learning platform needs to run an application for 2 months each year. The application will be deployed on Amazon EC2 instances. Any application downtime during those 2 months must be avoided.\nWhich EC2 purchasing option will meet these requirements MOST cost-effectively?",
+    question: "Eine E-Learning-Plattform muss eine Anwendung zwei Monate pro Jahr ausführen. Die Anwendung wird auf Amazon EC2-Instanzen bereitgestellt. Jegliche Ausfallzeit während dieser zwei Monate muss vermieden werden.\nWelche EC2-Kaufoption erfüllt diese Anforderungen am kosteneffizientesten?",
     options: [
-      "A. Reserved Instances",
-      "B. Dedicated Hosts",
-      "C. Spot Instances",
-      "D. On-Demand Instances"
+      "A. Reservierte Instanzen",
+      "B. Dedizierte Hosts",
+      "C. Spot-Instanzen",
+      "D. On-Demand-Instanzen"
     ],
-    answer: "D. On-Demand Instances"
+    answer: "D. On-Demand-Instanzen"
   },
   {
-    question: "A developer wants to deploy an application quickly on AWS without manually creating the required resources.\nWhich AWS service will meet these requirements?",
+    question: "Ein Entwickler möchte eine Anwendung schnell auf AWS bereitstellen, ohne die erforderlichen Ressourcen manuell zu erstellen.\nWelcher AWS-Dienst erfüllt diese Anforderungen?",
     options: [
       "A. Amazon EC2",
       "B. AWS Elastic Beanstalk",
@@ -173,17 +173,17 @@ export const questions = [
     answer: "B. AWS Elastic Beanstalk"
   },
   {
-    question: "A company is storing sensitive customer data in an Amazon S3 bucket. The company wants to protect the data from accidental deletion or overwriting.\nWhich S3 feature should the company use to meet these requirements?",
+    question: "Ein Unternehmen speichert vertrauliche Kundendaten in einem Amazon S3-Bucket. Es möchte die Daten vor versehentlichem Löschen oder Überschreiben schützen.\nWelche S3-Funktion sollte das Unternehmen verwenden, um diese Anforderungen zu erfüllen?",
     options: [
-      "A. S3 Lifecycle rules",
-      "B. S3 Versioning",
-      "C. S3 bucket policies",
-      "D. S3 server-side encryption"
+      "A. S3-Lifecycle-Regeln",
+      "B. S3-Versionierung",
+      "C. S3-Bucket-Richtlinien",
+      "D. S3-Server-seitige Verschlüsselung"
     ],
-    answer: "B. S3 Versioning"
+    answer: "B. S3-Versionierung"
   },
   {
-    question: "Which AWS service provides the ability to manage infrastructure as code?",
+    question: "Welcher AWS-Dienst bietet die Möglichkeit, Infrastruktur als Code zu verwalten?",
     options: [
       "A. AWS CodePipeline",
       "B. AWS CodeDeploy",
@@ -193,14 +193,13 @@ export const questions = [
     answer: "D. AWS CloudFormation"
   },
   {
-    question: "An online gaming company needs to choose a purchasing option to run its Amazon EC2 instances for 1 year. The web traffic is consistent, and any increases in traffic are predictable. The EC2 instances must be online and available without any disruption.\nWhich EC2 instance purchasing option will meet these requirements MOST cost-effectively?",
+    question: "Ein Online-Gaming-Unternehmen muss eine Kaufoption wählen, um seine Amazon EC2-Instanzen für ein Jahr zu betreiben. Der Webverkehr ist konstant, und eventuelle Spitzen sind vorhersehbar. Die EC2-Instanzen müssen ohne Unterbrechung online und verfügbar sein.\nWelche EC2-Kaufoption erfüllt diese Anforderungen am kosteneffizientesten?",
     options: [
-      "A. On-Demand Instances",
-      "B. Reserved Instances",
-      "C. Spot Instances",
+      "A. On-Demand-Instanzen",
+      "B. Reservierte Instanzen",
+      "C. Spot-Instanzen",
       "D. Spot Fleet"
     ],
-    answer: "B. Reserved Instances"
+    answer: "B. Reservierte Instanzen"
   }
 ];
-
