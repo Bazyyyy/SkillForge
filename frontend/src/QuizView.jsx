@@ -53,6 +53,15 @@ export default function QuizView({
     setSelectedOption(Array.isArray(questions[currentIdx].answer) ? [] : null);
   }, [currentIdx]);
 
+  useEffect(() => {
+    // Wenn alle Fragen richtig, Feedback anzeigen
+    if (correctQuestions.length === questions.length) {
+      setFeedback("Quiz beendet! Du hast alle Fragen richtig beantwortet.");
+      setShowResult(true);
+    }
+    // eslint-disable-next-line
+  }, [correctQuestions]);
+
   function handleOptionClick(opt) {
     if (Array.isArray(current.answer)) {
       setSelectedOption(prev =>
