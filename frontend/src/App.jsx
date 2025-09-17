@@ -65,6 +65,12 @@ export default function App() {
         setAchievements(result.progress.achievements || []);
         setAnsweredQuestions(result.progress.answeredQuestions || []);
         setCorrectQuestions(result.progress.correctQuestions || []);
+      } else {
+        setScore(0);
+        setLevel(1);
+        setAchievements([]);
+        setAnsweredQuestions([]);
+        setCorrectQuestions([]);
       }
     } else {
       setLoginError(result.error || "Falsche E-Mail oder Passwort.");
